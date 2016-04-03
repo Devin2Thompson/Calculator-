@@ -165,105 +165,108 @@ TheCalc()
 				else if (function == 1)
 				{
 					{
-					printf("Which trig function? (sin, cos, tan)\n");
-					scanf("%s", &Tfunction);
-					if ((strcmp(Tfunction, "sin") != 0) && (strcmp(Tfunction, "cos") != 0) && (strcmp(Tfunction, "tan") != 0))
-					{
-						printf("Error, please enter an accepted character.\n");
 
-					}
-					printf(" degrees or radians?\n");
-					scanf("%s", &DR);
-					
-					printf("If you're using radians, and value is PI being multiplied or divided by a number,"
-						"enter, y, if not, click enter\n");
-					scanf("%s", &vPi);
-					
-					if (strcmp(vPi, "y") == 0)
-					{
-						printf("Is pi being multiplied or divided?(m or d)\n");
-						scanf("%s", &opP);
+						printf(" degrees or radians?\n");//are you using degree or radians
+						scanf("%s", &DR);
 
-						if (strcmp(opP, "m") == 0)
-						{
-							printf("Pi is being multiplied by what number?\n");
-							scanf("%d", &sPi);
-							degrad = PI*sPi;
-						}
-						if (strcmp(opP, "d") == 0)
-						{
-							printf("Pi is being divided by what number?\n");
-							scanf("%d", &sPi);
-							degrad = PI / sPi;
-							printf("$d", degrad);
-						}
-					}
-					
-					
-						if (strcmp(Tfunction, "sin") == 0)
+						printf("If you're using radians, and value is PI being multiplied or divided by a number,"
+							"enter, y, if not, type n\n");
+						scanf("%s", &vPi);
 
+						if (strcmp(vPi, "y") == 0)
 						{
-							
-							
-							if (strcmp(DR, "degrees") == 0)
+							printf("Is pi being multiplied or divided?(m or d)\n");//are you multiplying or diving pi
+							scanf("%s", &opP);
+
+							if (strcmp(opP, "m") == 0)
 							{
-								printf("What value of Degrees\n");
+								printf("Pi is being multiplied by what number?\n");//scalar multiple
+								scanf("%d", &sPi);
+								degrad = PI*sPi;
+							}
+							if (strcmp(opP, "d") == 0)
+							{
+								printf("Pi is being divided by what number?\n");//scalar division
+								scanf("%f", &sPi);
+								degrad = PI / sPi;
+
+							}
+						}
+						else {
+							printf("Which trig function? (sin, cos, tan)\n");
+							scanf("%s", &Tfunction);
+							if ((strcmp(Tfunction, "sin") != 0) && (strcmp(Tfunction, "cos") != 0) && (strcmp(Tfunction, "tan") != 0))
+							{
+								printf("Error, please enter an accepted character.\n");
+
+							}
+
+							if (strcmp(Tfunction, "sin") == 0)
+
+							{
+
+
+								if (strcmp(DR, "degrees") == 0)
+								{
+									printf("What value of Degrees\n");
+									scanf("%f", &degrad);
+									printf("%f \n", sin((degrad*(PI / 180))));
+
+									_getch();
+
+								}
+								else if (strcmp(DR, "radians") == 0)
+								{
+									printf("%f \n", sin(degrad));
+
+									_getch();
+								}
+							}
+							else if (strcmp(Tfunction, "cos") == 0)
+							{
+
+
 								scanf("%f", &degrad);
-								printf("%f \n", sin((degrad*(PI / 180))));
+								if (strcmp(DR, "degrees") == 0)
+								{
+									printf("%f \n", cos((degrad*(PI / 180))));
 
-								_getch();
+									_getch();
+
+								}
+								else if (strcmp(DR, "radians") == 0)
+								{
+									printf("%f \n", cos(degrad));
+									_getch();
+
+								}
+
 
 							}
-							else if (strcmp(DR, "radians") == 0)
-							{
-								printf("%f \n", sin(degrad));
 
-								_getch();
+							if (strcmp(Tfunction, "tan") == 0)
+							{
+								printf("Are you using degrees or radians?\n");
+								scanf("%s", &DR);
+								printf("What value of Degrees or radians? \n");
+								scanf("%f", &degrad);
+								if (strcmp(DR, "degrees") == 0)
+								{
+									printf("%f \n", tan(degrad*(PI / 180)));
+
+									_getch();
+
+								}
+								else if (strcmp(DR, "radians") == 0)
+								{
+									printf("%f \n", tan(degrad));
+									_getch();
+								}
+
 							}
 						}
-						else if (strcmp(Tfunction, "cos") == 0)
-						{
-							printf("Are you using degrees or radians?\n");
-							scanf("%s", &DR);
-							printf("What value of Degrees or radians?(for Pi, enter 3.14)\n");
-							scanf("%f", &degrad);
-							if (strcmp(DR, "degrees") == 0)
-							{
-								printf("%f \n", cos((degrad*(PI / 180))));
-
-								_getch();
-
-							}
-							else if (strcmp(DR, "radians") == 0)
-							{
-								printf("%f \n", cos(degrad));
-								_getch();
-
-							}
-
-
 						}
 
-						if (strcmp(Tfunction, "tan") == 0)
-						{
-							printf("Are you using degrees or radians?\n");
-							scanf("%s", &DR);
-							printf("What value of Degrees or radians? \n");
-							scanf("%f", &degrad);
-							if (strcmp(DR, "degrees") == 0)
-							{
-								printf("%f \n", tan(degrad*(PI / 180)));
-
-								_getch();
-
-							}
-							else if (strcmp(DR, "radians") == 0)
-							{
-								printf("%f \n", tan(degrad));
-								_getch();
-							}
-
-						}
 					}
 				}
 				printf("Compute again? (y/n)\n ");
@@ -278,7 +281,7 @@ TheCalc()
 				}
 			}
 
-		} 
+		 
 
 	}while (i = 1);
 
