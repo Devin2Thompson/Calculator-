@@ -16,13 +16,13 @@ TheCalc()
 	int function; //function that they user will do
 	char op2[10], opP[5], vPi[5], again[10],Tfunction[10],DR[20], op1[10]; //option 2, 2 numbers	
 	int HowMany; // the number of numbers the user wants to operate on
-	float num1, num2, degrad, sPi; // floats, intigers with decimals, of numbers 1 and 2
+	float num1, num2, degrad, sPi; // floats, integers with decimals, of numbers 1 and 2
 	
 	do
 	{
 
 
-			printf("What would you like to do? (trig (input 1), basic(input 2), algebra(input 3))\n"); //askking what type of function the user wants to do
+			printf("What would you like to do? (trig (input 1), basic(input 2), algebra(input 3))\n"); //asking what type of function the user wants to do
 			scanf("%d", &function); //taking their input
 			{
 				if ((function != 1) && (function != 2) && (function != 3))
