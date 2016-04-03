@@ -19,7 +19,7 @@ TheCalc()
 	float num1, num2, degrad; // floats, intigers with decimals, of numbers 1 and 2
 	char DR[20];//degree or radians
 	char Tfunction[10];//which trig function
-	char again[3];
+	char again[10];
 
 	
 
@@ -126,24 +126,32 @@ TheCalc()
 				{
 					printf("input your number\n");
 					scanf("%f", &num1);
-					printf("%f", sqrt(num1));
+					if (num1 < 0)
+					{
+						num1 = -1 * num1;
+						printf("%fi", sqrt(num1));
+					}
+					else {
+						printf("%f", sqrt(num1));
+					}
+					
 					_getch();
 					
 				}
 				else if (strcmp(op1, "abs") == 0)//finding the absolute value of their number
 				{
+					printf("input your number\n");
+					scanf("%f", &num1);
 					if (num1 < 0)
 					{
-						printf("input your number\n");
-						scanf("%f", &num1);
+						
 						printf("%f", -1 * num1);
 						_getch();
 						
 					}
 					else
 					{
-						printf("input your number\n");
-						scanf("%f", &num1);
+						
 						printf("%f", num1);
 						_getch();
 						
@@ -210,7 +218,7 @@ TheCalc()
 					{
 						printf("Are you using degrees or radians?\n");
 						scanf("%s", &DR);
-						printf("What value of Degrees or radians? (for Pi, enter 3.14) \n");
+						printf("What value of Degrees or radians? \n");
 						scanf("%f", &degrad);
 						if (strcmp(DR, "degrees") == 0)
 						{
